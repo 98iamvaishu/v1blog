@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> VBLOG</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+</head>
+<body>
+    <a href="{% url 'form' %}" class="top-menu"><i class="fa fa-plus-square-o" style="font-size:48px;color:black"></i></a>
+
+    <h1>Life Hacks</h1>
+  {% for p in posts %}
+  <hr>
+  <div>
+   <h3>{{p.title}}</h3>
+   <h5>{{p.cdate}}
+   <p>{{p.text|truncatechars:130}}</p>
+{% endfor %}
+</body>
+</html>
