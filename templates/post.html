@@ -4,47 +4,47 @@
   <div class="card" style="width:800px;margin-left:250px;margin-bottom:30px;float:center;margin-top:20px";>
     <div class="card-body">
       <h3 class="card-title"><b>{{post.title}}</b></h5>
-        <p><img src = '{{post.author.pic.url}}' %} class="card-img-top"style="width: 50px; height: 50px;border-radius: 50%;">&nbsp;<i>{{post.author.first_name}}</i>{{post.date}}<p>
- 
-      <p>{{post.author.first_name}}  {{post.date}}<p>
-        <p class="card-text">{{post.content|linebreaks}}</p>
-        <div class = "container">
-          <div class = "row">
-            <div style = "margin-top:10px;"><button  id="btnClick" onclick="post_comment()" class="btn"><i class="fa fa-paper-plane"></i> Comment</i></button></div>
-            
-            <form action = " " method = "POST">
-              {% csrf_token%}
-              <div > <button  id = "bttn" style = "margin-left:20px;margin-top:12px;" type = "submit" name = "like" class="btn" ><i style = "color:red"class="fa fa-heart"> {{post.likes}}  Like</i></button>
+      <p><img src = '{{post.author.pic.url}}' %} class="card-img-top"style="width: 50px; height: 50px;border-radius: 50%;">&nbsp;<i>{{post.author.first_name}}</i>{{post.date}}<p>
+        
+        <p>{{post.author.first_name}}  {{post.date}}<p>
+          <p class="card-text">{{post.content|linebreaks}}</p>
+          <div class = "container">
+            <div class = "row">
+              <div style = "margin-top:10px;"><button  id="btnClick" onclick="post_comment()" class="btn"><i class="fa fa-paper-plane"></i> Comment</i></button></div>
+              
+              <form action = " " method = "POST">
+                {% csrf_token%}
+                <div > <button  id = "bttn" style = "margin-left:20px;margin-top:12px;" type = "submit" name = "like" class="btn" ><i style = "color:red"class="fa fa-heart"> {{post.likes}}  Like</i></button>
+                </div>
               </div>
             </div>
+            <script>
+            cnt = 0
+            function dis(){
+            document.getElementById("bttn").disabled = true;
+            }
+            function post_comment(){
+            document.getElementById('p_comment').style.display = "block";
+            }
+            </script>
           </div>
-          <script>
-          cnt = 0
-          function dis(){
-          document.getElementById("bttn").disabled = true;
-          }
-          function post_comment(){
-          document.getElementById('p_comment').style.display = "block";
-          }
-          </script>
+        </div>
+        <br>
+        
+        <div class="form-group" id = "p_comment" style="display:none;width:800px;margin-left:250px;margin-bottom:30px;float:center;margin-top:20px">
+          <label for="exampleFormControlTextarea1"><i>Write your comment here</i></label>
+          <textarea class="form-control" name = "comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <button type ="submit" name = "com" style = "margin-left:700px;margin-top:10px;" type="button" class="btn btn-success"><i class="fa fa-paper-plane"></i>Post</i></button>
         </div>
       </div>
-      <br>
-      
-      <div class="form-group" id = "p_comment" style="display:none;width:800px;margin-left:250px;margin-bottom:30px;float:center;margin-top:20px">
-        <label for="exampleFormControlTextarea1"><i>Write your comment here</i></label>
-        <textarea class="form-control" name = "comment" id="exampleFormControlTextarea1" rows="3"></textarea>
-        <button type ="submit" name = "com" style = "margin-left:700px;margin-top:10px;" type="button" class="btn btn-success"><i class="fa fa-paper-plane"></i>Post</i></button>
+    </form>
+    <h3 style = "margin-left:250px;margin-bottom:30px;float:center;margin-top:20px">Comments</h3>
+    {% for com in comment%}
+      <div class="card" style="width:800px;margin-left:250px;margin-bottom:30px;float:center;margin-top:20px">
+        <div class="alert alert-light" role="alert">
+          <img src = '{{com.profile.pic.url}}' %} class="card-img-top"style="width: 50px; height: 50px;border-radius: 50%;">
+        {{com.profile.user.first_name}}&nbsp;{{com.time}}<br>{{com.text}}</div>
       </div>
     </div>
-  </form>
-  <h3 style = "margin-left:250px;margin-bottom:30px;float:center;margin-top:20px">Comments</h3>
-  {% for com in comment%}
-    <div class="card" style="width:800px;margin-left:250px;margin-bottom:30px;float:center;margin-top:20px">
-      <div class="alert alert-light" role="alert">
-        <img src = '{{com.profile.pic.url}}' %} class="card-img-top"style="width: 50px; height: 50px;border-radius: 50%;">
-      {{com.profile.user.first_name}}&nbsp;{{com.time}}<br>{{com.text}}</div>
-    </div>
-  </div>
-  {%endfor%}>
-{% endblock %}
+    {%endfor%}>
+  {% endblock %}

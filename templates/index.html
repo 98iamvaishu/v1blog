@@ -6,41 +6,41 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <nav class="navbar navbar-dark bg-dark">
   <li class="nav-item dropdown">
-      
-  <a class="navbar-brand" href="#">BlogBit</a>
-      
-  
-  
-  {% if not  user.is_authenticated %}
     
-    <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "color:white">
-    <i class="fa fa-bars" style="font-size:30px;color:white"></i>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" href="/signin/">Signin</a>
-      <a class="dropdown-item" href="/signup/">Sign UP</a>
-      <a class="dropdown-item" href="/new_blog/">Add blog</a>
-    </div>
-  {% else %}
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "color:white">
-        <img src = {% static 'images/profile1.png' %} style="vertical-align: middle;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;">
-        Profile
-      </a> <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" href="/profile/">View Profile</a>
-      <a class="dropdown-item" href="/view_profile/">Edit profile</a>
-      <a class="dropdown-item" href="/new_blog/">Add blog</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="{% url 'logout1' %}">Logout</a>
-    </div>
-    {% endif %}
-  </div>
-  
-</li>
-</nav>
+    <a class="navbar-brand" href="#">BlogBit</a>
+    
+    
+    
+    {% if not  user.is_authenticated %}
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "color:white">
+          <i class="fa fa-bars" style="font-size:30px;color:white"></i>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/signin/">Signin</a>
+            <a class="dropdown-item" href="/signup/">Sign UP</a>
+            <a class="dropdown-item" href="/new_blog/">Add blog</a>
+          </div>
+        {% else %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "color:white">
+              <img src = {% static 'images/profile1.png' %} style="vertical-align: middle;
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;">
+              Profile
+            </a> <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/profile/">View Profile</a>
+            <a class="dropdown-item" href="/view_profile/">Edit profile</a>
+            <a class="dropdown-item" href="/new_blog/">Add blog</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'logout1' %}">Logout</a>
+          </div>
+        {% endif %}
+      </div>
+      
+    </li>
+  </nav>
 </div>
 {% block body %}
 {% endblock %}
