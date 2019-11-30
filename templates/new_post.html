@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+  <form action = "" method = "POST">
+    {% csrf_token%}
+    <b><h2 style  = " font-weight:bold;margin-right:200px;margin-left:200px;margin-top:50px">New Post</h2></b>
+    <div style="margin-right:200px;margin-left:200px;margin-top:50px">
+      <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Title</span>
+        </div>
+        <input type="text" class="form-control" name = "title" >
+      </div>
+    </div>
+    <div style="margin-right:200px;margin-left:200px;margin-top:50px">
+      <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Subtitle</span>
+        </div>
+        <input type="text" class="form-control" name = "subtitle" >
+      </div>
+    </div>
+    <div style="margin-right:200px;margin-left:200px;margin-top:50px">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Content</span>
+        </div>
+        <textarea rows="20" cols="100"class="form-control" name = "content"></textarea>
+      </div>
+    </div>
+    <div style="margin-right:200px;margin-left:200px;margin-top:50px">
+      <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Duration</span>
+        </div>
+        <input type="text" class="form-control" name ="duration">
+      </div>
+    </div>
+    <div style = "margin-left:1000px;margin-top:20px">
+      <button type="submit" class="btn btn-primary btn-lg">Post Blog</button>
+    </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,47 @@
+     
+      <form  action ="https://test.payu.in/_payment" method = "POST">
+            {%csrf_token%}
+        <input type="hidden" name="key" value="{{key}}" />
+        <input type="hidden" name="hash_string" value="{{ posted.hash_string }}" />
+        <input type="hidden" name="hash" value="{{hash}}"/>
+        <input type="hidden" name="posted" value="{{ posted }}"/>
+        <input type="hidden" name="txnid" value="{{ txnid }}" />
+        <input type="hidden" name="surl" value="{{ surl }}" />
+      <table>
+        <tr>
+          <td><b>Mandatory Parameters</b></td>
+        </tr>
+        <tr>
+         <td>Amount: </td>
+          <td><input  type = "number" name="amount" svalue="{{ posted.amount|default:'' }}" /></td>
+          <td>First Name: </td>
+          <td><input name="firstname" id="firstname" value="{{ posted.firstname|default:'' }}" /></td>
+        </tr>
+        <tr>
+          <td>Email: </td>
+          <td><input name="email" id="email" value="{{ posted.email|default:'' }}" /></td>
+          <td>Phone: </td>
+          <td><input name="phone" value="{{ posted.phone|default:'' }}" /></td>
+        </tr>
+        <tr>
+          <td>Product Info: </td>
+          <td colspan="3"><textarea name="productinfo">{{ posted.productinfo|default:'' }}</textarea></td>
+        </tr>
+
+
+        <tr>
+          <td colspan="3">
+                <input type="hidden" name="service_provider" value="{{posted.service_provider}}" size="64" />
+          </td>
+        </tr>
+             <tr>
+                   
+        
+     <td colspan="4"><input type="submit" value="Submit" /></td>
+      
+    
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

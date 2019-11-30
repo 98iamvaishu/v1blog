@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogger',
-    'vblog'
+    'vblog',
+    # 
+    'payu',
 ]
-
+    
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -115,9 +117,23 @@ USE_L10N = True
 
 USE_TZ = True
 
+PAYU_MERCHANT_KEY = "8aPXKp5K",
 
+PAYU_MERCHANT_SALT = "d8Du69LAOr",
+
+PAYU_MODE = "TEST"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'vaishnavikulkarni357@gmail.com'
+EMAIL_HOST_PASSWORD = 'vaishu1998'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media/'

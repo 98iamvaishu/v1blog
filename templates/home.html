@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+	<div class = "container" style="margin-left:300px;margin-right:200px;margin-top:30px">
+    <p>HI {{user.first_name}}
+{% for post in posts%}
+<div class="card" style="width:800px;height:400px;margin-bottom:30px;float:center;margin-top:20px;">
+  <div class="card-body">
+    <h3 class="card-title"><b>{{post.title}}</b></h5>
+    <p><img src = '{{post.author.pic.url}}' %} class="card-img-top"style="width: 50px; height: 50px;border-radius: 50%;">&nbsp;<i>{{post.author.first_name}}</i>{{post.date}}<p>
+    <p class="card-text">{{post.content|truncatechars:580}}
+    <a href="/post/{{post.id}}" style="color:blue">Read more</a></p>
+  </div>
+</div>
+{%endfor%}
+
+ {% endblock %}

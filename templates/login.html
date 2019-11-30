@@ -1,0 +1,37 @@
+<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				
+			</div>
+			<div class="col-md-4">
+				<div style="text-align:center">
+					
+					<h4>🗝️ Login</h4>
+					<br>
+				</div>
+				<div style="border: 1px solid #ddd; padding: 50px 40px;">
+					
+					<form action="" method="POST" class="form">
+						{% csrf_token %}
+						{% ifequal flag False %}
+							<div class="alert alert-primary" role="alert">
+								Invalid username or password!
+							</div>
+							{%endifequal%}
+							<div class="form-group">
+								<p>Email</p>
+								<input class="form-control" type="text" name="email">
+							</div>
+							<div class="form-group">
+								<p>Password</p>
+								<input class="form-control" type="password" name="password">
+							</div>
+							<button type="submit" class="btn btn-md btn-success">Signin</button>
+						</form>
+					</div>
+				</div>
+				<div class="col-md-4">
+					
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<form action = "/view_profile/" method = "POST" enctype="multipart/form-data">
+	 {% csrf_token%}<div class="card" style="width: 500px; margin-top:50px;margin-left:500px">
+          <img src = "{{p.pic.url}}"  alt = "not found" class="card-img-top"style="width: 150px; height: 150px;border-radius: 50%;margin-left:120px;margin-top:10px">
+          <div  class="card-body">
+            <h5 class="card-title" style = "margin-left:120px" ><b>{{p.user.first_name}} {{p.user.last_name}}</b></h5><br>
+           Status: &nbsp;<input style = "border:none ;border-bottom: 2px solid lightblue;"type="text" name="status" value="{{p.status}}"><br><br>
+           Designation:  &nbsp;<input style = "border:none ;border-bottom: 2px solid lightblue;" type="text"  name="desig" value="{{p.desig}}"><br><br>
+
+		<div>
+      <label for="files"class="btn btn-secondary">Select Image</label>
+      <input id="files" name="filepath" style="visibility:hidden;" type="file"></div>
+      <input type = "submit" style="width: 420px;margin-right:20px;" class="btn btn-primary" value = "Save Changes">
+    
+  </div>
+</div>
+  </form>
+  {% endblock %}

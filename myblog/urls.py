@@ -1,6 +1,6 @@
-from vblog import views
-
-
+from blogger.views import *
+# from registration.views import signin,logout,signup
+# from vblog.views import list_post
 """myblog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,9 +18,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.list,name = 'list'),
-    path('add/',views.form,name='form'),
-    ]
+    path('signin/',signin),
+    path('post/<int:post_id>/',post_page),
+    path('logout1/',logout1,name = "logout1"),
+    path('view_profile/',view_profile),
+    path('signup/',signup),
+    path('profile1/',profile1),
+    path('list1/',list_post),
+    # path('email/',email),
+    path('',main),
+    path('home/',home),
+    path('new_blog/',new_post),
+    path('profile/',profile)
+    ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
