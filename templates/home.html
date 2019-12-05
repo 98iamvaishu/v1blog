@@ -2,7 +2,7 @@
 {% load static %}
 {% block body %}
 	<div class = "container" style="margin-left:300px;margin-right:200px;margin-top:30px">
-		<p>HI {{user.first_name}}
+		<h3>Hey {{user.first_name}}, here are some Blogs you might find interesting !</h3>
 			{% for post in posts%}
 				<div class="card" style="width:800px;height:400px;margin-bottom:30px;float:center;margin-top:20px;">
 					<div class="card-body">

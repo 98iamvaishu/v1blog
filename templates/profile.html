@@ -24,12 +24,13 @@
                 <p><i>{{post.author.first_name}}</i></p>
                 <p>  {{post.date}}<p>
                   <p class="card-text">{{post.content|truncatechars:580}}
-                    <a href="/post/{{post.id}}" style="color:blue">Read more</a></p>
-                    
-                  </div>
-                </div>
-                {%endfor%}
+                    <a href="/post/{{post.id}}" style="color:blue">Read more</a>
+                  </p>      
               </div>
             </div>
-          </div>
+          {%endfor%}
+        </div>
+      </div>
+    </div>
+  </div>
         {% endblock %}

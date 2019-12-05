@@ -23,7 +23,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signin/',signin),
     path('post/<int:post_id>/',post_page),
     path('logout1/',logout1,name = "logout1"),
     path('view_profile/',view_profile),
@@ -31,7 +30,7 @@ urlpatterns = [
     path('profile1/',profile1),
     path('list1/',list_post),
     # path('email/',email),
-    path('',main),
+    path('',signin),
     path('home/',home),
     path('new_blog/',new_post),
     path('profile/',profile)

@@ -3,11 +3,13 @@
 {% block body %}
   <div class="card" style="width:800px;margin-left:250px;margin-bottom:30px;float:center;margin-top:20px";>
     <div class="card-body">
-      <h3 class="card-title"><b>{{post.title}}</b></h5>
+      <h3 class="card-title"><b>You Don’t Need More Motivation — You Need a System</b></h5>
       <p><img src = '{{post.author.pic.url}}' %} class="card-img-top"style="width: 50px; height: 50px;border-radius: 50%;">&nbsp;<i>{{post.author.first_name}}</i>{{post.date}}<p>
         
-        <p>{{post.author.first_name}}  {{post.date}}<p>
-          <p class="card-text">{{post.content|linebreaks}}</p>
+       
+          <p class="card-text">Six years ago, I tried to pursue my dream of becoming an entrepreneur: I did some freelance writing, built websites, and took on some content marketing and design projects. But, despite all the time I put in, I wasn’t seeing the results I wanted. Why? Because I couldn’t get myself to do the uncomfortable work — the difficult, tedious, and unsatisfying tasks that come with actually building a business. I kept looking for relief from those tasks, often scrolling through the news or going out (yet again) for a coffee break.
+
+That was, and to a degree still is, the story of my life. Right now, I’m writing a book. Writing is hard. I keep fighting the urge to put off the work. But I’m moving along and getting it done. The only difference between my life six years ago and my life today is that I now have a system.</p>
           <div class = "container">
             <div class = "row">
               <div style = "margin-top:10px;"><button  id="btnClick" onclick="post_comment()" class="btn"><i class="fa fa-paper-plane"></i> Comment</i></button></div>

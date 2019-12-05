@@ -57,9 +57,7 @@ def main(request):
 
 def home(request):
     posts = reversed(Blogsite.objects.all())
-    for p in posts:
-        print(p.author.pic)
-        break
+    print(posts)
     user = request.user
     return render(request, "home.html", {"posts": posts,"user":user})
 
