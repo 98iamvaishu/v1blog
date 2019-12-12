@@ -1,18 +1,18 @@
-=<div class="container">
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container">
 	<div class="row">
-		<div class="col-md-4">
-			
-		</div>
-		<div class="col-md-4">
-			<div style="text-align:center">
+			<div class="card" style="width:800px;height:400px;margin-bottom:30px;float:center;margin-top:20px;">
 				
-				<h4>ðŸ—ï¸ Login</h4>
-				<br>
-			</div>
+				
 			<div style="border: 1px solid #ddd; padding: 50px 40px;">
 				
 				<form action="" method="POST" class="form">
 					{% csrf_token %}
+					<h4>Login</h4>
+				<br>
 					{% ifequal flag False %}
 						<div class="alert alert-primary" role="alert">
 							Invalid username or password!
@@ -30,8 +30,7 @@
 					</form>
 				</div>
 			</div>
-			<div class="col-md-4">
-				
-			</div>
+		</div>
 		</div>
 	</div>
+	 {% endblock %}

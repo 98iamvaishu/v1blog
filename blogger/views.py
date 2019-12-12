@@ -26,7 +26,7 @@ def signin(request):
 
 def logout1(request):
     logout(request)
-    return redirect("/home/")
+    return redirect("/")
 
 
 def signup(request):
@@ -59,7 +59,8 @@ def home(request):
     posts = reversed(Blogsite.objects.all())
     print(posts)
     user = request.user
-    return render(request, "home.html", {"posts": posts,"user":user})
+    prof = Profile.objects.get(user=user)
+    return render(request, "home.html", {"posts": posts,"prof":prof})
 
 
 def post_page(request, post_id): 
@@ -75,7 +76,7 @@ def post_page(request, post_id):
     mypost = Blogsite.objects.get(pk=post_id)
     print(mypost.likes)
     comment = reversed(Comment.objects.filter(post=mypost))
-    return render(request, "post.html", {"post": mypost, "comment": comment})
+    return render(request, "post.html", {"post": mypost, "comment": comment,"prof":prof})
 
 
 def list_post(request):

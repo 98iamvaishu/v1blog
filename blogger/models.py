@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 class Profile(models.Model):
-    pic = models.ImageField(upload_to = 'images', null = True,default='blogger/images/default.png')
+    pic = models.ImageField(upload_to = 'images', null = True,default='static/images/default.png')
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     status = models.CharField(max_length =200)
     desig   = models.CharField(max_length =200,null=True)

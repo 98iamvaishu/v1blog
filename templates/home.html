@@ -1,13 +1,19 @@
 {% extends 'index.html' %}
 {% load static %}
+{% block profile %}<img src = '{{prof.pic.url}}' %} style="vertical-align: middle;
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;">{% endblock %}
+
 {% block body %}
 	<div class = "container" style="margin-left:300px;margin-right:200px;margin-top:30px">
-		<h3>Hey {{user.first_name}}, here are some Blogs you might find interesting !</h3>
+		<h3>Hey {{prof.user.first_name}}, <br>here are some Blogs you might find interesting !</h3>
 			{% for post in posts%}
 				<div class="card" style="width:800px;height:400px;margin-bottom:30px;float:center;margin-top:20px;">
 					<div class="card-body">
 						<h3 class="card-title"><b>{{post.title}}</b></h5>
 						<p><img src = '{{post.author.pic.url}}' %} class="card-img-top"style="width: 50px; height: 50px;border-radius: 50%;">&nbsp;<i>{{post.author.first_name}}</i>{{post.date}}<p>
+							<p>{{post.content|truncatechars:500}}
 							<a href="/post/{{post.id}}" style="color:blue">Read more</a></p>
 						</div>
 					</div>
